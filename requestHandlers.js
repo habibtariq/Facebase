@@ -5,7 +5,7 @@ var connection = require('./database');
 connection.connect();
 
 
-var name; // bad bad bad
+var name;
 
 //redirect to index.html
 function home(response) {
@@ -22,7 +22,7 @@ function getData(response, request) {
 
   var website = url_parts.query.webName;
   console.log("Data requested by the user name:" + name + " for:" + website);
-	//response.end("Data requested by the user name:"+name+" for:"+url_parts.query.webName);
+
 	
 	connection.query("SELECT * from facebase WHERE website = '" + website + "' AND user = '" + name + "'", function (err, rows, fields) {
 		if (!err) {
@@ -45,14 +45,12 @@ function getUser(response, request) {
     response.writeHead(302, {'Location': 'form.html'});
     response.end();
 	}
-	//res.end("Data submitted by the user name:"+url_parts.query.name+" and confidence:"+url_parts.query.conf);
   
   response.end(); //TODO
 }
 
 function putData(response, request) {
   console.log("putData was called");
-  //response.end();
   var url_parts = url.parse(request.url, true);
   
   var user = name,
@@ -74,7 +72,6 @@ function putData(response, request) {
 	console.log(query.sql);
 
 	console.log("Data submitted by the user name:" + name + " website:" + website + " Username:" + username + " passwd:" + password + " email:" + email);
-	//response.end("Data submitted by the user name:"+name+" website:"+url_parts.query.webName+" Username"+url_parts.query.userName);
 	fs.readFile('./form.html', function (error, data) {
 		console.log('Serving the page form.html');
 		response.end(data);

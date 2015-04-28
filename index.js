@@ -2,8 +2,6 @@ var server = require("./server");
 var router = require("./router");
 var requestHandlers = require("./requestHandlers");
 
-
-// all files in static folder are automatically mapped. See router.js. No need to create a new handle for each file on server.
  
 var handle = {}     
 
