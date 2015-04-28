@@ -2,6 +2,7 @@ var fs = require("fs"),
     formidable = require("formidable");
 var url = require('url');
 var connection = require('./database');
+var train = require("./train");
 connection.connect();
 
 
@@ -79,8 +80,22 @@ function putData(response, request) {
   
 }
 
+function putUser(response, request) {
+  console.log("putUser was called");
+  var url_parts = url.parse(request.url, true);
+
+	console.log("Login User name:" + url_parts.query.name + " and image URL:" + url_parts.query.imageurl);
+	train.person(url_parts.query.formname,url_parts.query.imageurl);
+	train.rebuild();  
+    response.writeHead(302, {'Location': 'trainingform.html'});
+    response.end();
+  
+  response.end(); //TODO
+}
+
 
 exports.home = home;
 exports.getData = getData;
 exports.getUser = getUser;
 exports.putData = putData;
+exports.putUser = putUser;

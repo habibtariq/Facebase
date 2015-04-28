@@ -9,5 +9,6 @@ handle["/"] = requestHandlers.home;
 handle["/getData"] = requestHandlers.getData;
 handle["/getUser"] = requestHandlers.getUser;
 handle["/putData"] = requestHandlers.putData;
+handle["/putUser"] = requestHandlers.putUser;
 
 server.start(router.route, handle);
