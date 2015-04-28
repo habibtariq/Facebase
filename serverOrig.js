@@ -4,7 +4,7 @@ fs = require('fs'),
 url = require('url'),
 qs = require('querystring');
 
-/*
+
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
 host     : 'localhost',
@@ -13,7 +13,7 @@ password : 'Totti10',
 database : 'test'
 });
 connection.connect();
- */
+
 var name;
 var server = http.createServer(function (req, res) {
 
@@ -49,12 +49,12 @@ var server = http.createServer(function (req, res) {
 				res.end(' data event: ' + data);
 			});
 			//   console.log('got :'+ JSON.stringify(url_parts));
-			/*if (url_parts.pathname == '/')
+			if (url_parts.pathname == '/')
 				fs.readFile('./index.html', function (error, data) {
 					console.log('Serving the page index.html');
 					res.end(data);
 				});
-			else */if (url_parts.pathname == '/getData') {
+			else if (url_parts.pathname == '/getData') {
 				console.log('Serving the Got Data.');
 				getData(res, url_parts);
 			} else if (url_parts.pathname == '/getUser') {
