@@ -5,8 +5,6 @@ var connection = require('./database');
 connection.connect();
 
 
-
-
 var name; // bad bad bad
 
 //redirect to index.html
@@ -44,14 +42,12 @@ function getUser(response, request) {
   console.log("Login by the user name:" + url_parts.query.formName + " and confidence:" + url_parts.query.conf);
 	name = url_parts.query.formName;
 	if (name != "No User") {
-		fs.readFile('./form.html', function (error, data) {
-			console.log('Serving the page form.html');
-			response.end(data);
-		});
+    response.writeHead(302, {'Location': 'form.html'});
+    response.end();
 	}
 	//res.end("Data submitted by the user name:"+url_parts.query.name+" and confidence:"+url_parts.query.conf);
   
-  response.end();
+  response.end(); //TODO
 }
 
 function putData(response, request) {
