@@ -1,0 +1,26 @@
+TO INSTALL
+sudo apt-get install mysql-server
+
+1) Login
+sudo mysql -p
+
+2)create database
+create database test;
+
+3)Use database
+use test;
+
+4)create table
+CREATE TABLE facebase
+(
+id int unsigned NOT NULL auto_increment,
+user varchar(255) NOT NULL,
+website varchar(255) NOT NULL,
+username varchar(255) NOT NULL,
+password varchar(255) NOT NULL,
+email varchar(255) NOT NULL,
+PRIMARY KEY(id)
+);
+
+5)to view
+explain facebase;
