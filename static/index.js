@@ -1,24 +1,3 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>FACEBASE</title>
- <style media="screen" type="text/css">
-#photo {
-    height: 300px;
-    width: 380px;
-}
-#gallery {
-    margin: 5px 0;
-    background: #f6f6f6;
-}
-
-
-</style>
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
-<script type='text/javascript' src="http://wolframhempel.github.io/photobooth-js/photobooth_min.js"></script>
-<script type="text/javascript">
-
 $(window).load(function(){
 $(document).ready(function () {
     var file = null;
@@ -30,7 +9,6 @@ $(document).ready(function () {
         alert("Picture size: " + size);
         uploadImage(file);
         $("#gallery").append('<img src="' + dataUrl + '" >');
-		
     });
 });
 
@@ -76,21 +54,3 @@ function uploadImage(file) {
     });
 }
 }); // Closes window.load
-
-</script>
-</head>
-<body>
-<div id="photo"></div>
-<h3>FaceBase</h3>
-<!--<div id="gallery"></div>-->
-<form id="form0" name="form0" method="get" action="getUser">
-Name:<br>
-<input id="formName" type="text" name="formName" value ="No User" readonly>
-<br>
-Confidence:<br>
-<input id="conf" type="text" name="conf" value ="" readonly>
-<br>
-<button type="submit" value="Submit">Enter</button>
-</form>
-</body>
-</html> 
