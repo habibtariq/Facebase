@@ -1,6 +1,8 @@
 #modules
 node_modules
 
+habib.pem
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
