@@ -11,5 +11,6 @@ sudo npm install npm -g
 
 npm install formidable
 npm install mysql
+npm install unirest
 
 node index.js
