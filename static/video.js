@@ -1,7 +1,7 @@
 $(window).load(function () {
 	$(document).ready(function () {
     
-    Webcam.attach("#firstCamBox");
+    //Webcam.attach("#firstCamBox");
 		Webcam.attach("#webCamBox");
 
 		//capture button calls hidden trigger button to take picture
