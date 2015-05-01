@@ -14,3 +14,9 @@ npm install mysql
 npm install unirest
 
 node index.js
+
+
+
+
+#known bugs
+if url points to a directory. Sever crashes. Need to handle directory streaming.
