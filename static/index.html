@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Facebase</title>
+		<title>FaceLock</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -26,68 +26,58 @@
 	<body>
 		<!-- Header -->
 			<div id="header">
-				<span class="logo icon fa-paper-plane-o"></span>
-				<h1>Facebase</h1>
-				<p>A personal face recognition password & data storage website created by <a href="http://html5up.net">Habib Tariq.</a>
-				<br />
-				Implemented on EC2 using node.js, openCV and mySQL.</p>
+				<span class="logo icon fa-user-secret"></span>
+				<h1>FaceLock</h1>
+				<p>Access all your passwords via face recognition</p>
 			</div>
 
 		<!-- Main -->
 			<div id="main">
 
 				<header class="major container 75%">
-					<h2>Your own nugget of cloud storage with a twist.</h2>
+                    <h2>Tired of remembering increasingly complex passwords? Well you won't need one for this.</h2>
+                    <p>implemented on EC2 using nodeJS, openCV and mySQL</p>
 				</header>
 
 				<div class="box alt container">
 					<section class="feature left">
-						<a href="#" class="image icon fa-signal"><img src="images/pic01.jpg" alt="" /></a>
+						<a href="#" class="image icon fa-smile-o"><img src="images/pic01.jpg" alt="" /></a>
 						<div class="content">
-							<h3>The First Thing</h3>
-							<p>Tired of all those insane password requirements? Well you won't need one for this.</p>
+							<h3>What is all the fuss abt</h3>
+							<p>FaceLock makes your pretty face your password. It recognizes you so you can login with a smile.</p>
 						</div>
 					</section>
 					<section class="feature right">
 						<a href="#" class="image icon fa-code"><img src="images/pic02.jpg" alt="" /></a>
 						<div class="content">
-							<h3>The Second Thing</h3>
-							<p>Facebase makes your face your password and recognizes you so you can login with a smile..</p>
+							<h3>Why? Didn't you have better stuff to work on?</h3>
+							<p>A man does what he needs. <write about why i made it></p>
 						</div>
 					</section>
 					<section class="feature left">
 						<a href="#" class="image icon fa-mobile"><img src="images/pic03.jpg" alt="" /></a>
 						<div class="content">
-							<h3>The Third Thing</h3>
-							<p>This is currently a work in progress, so we're not saying it will keep the NSA out but you can have fun with accessing your storage in a different way. Try it!</p>
+							<h3>How safe is it?</h3>
+							<p>This is currently a work in progress, so we're not saying it will keep the NSA out but you can have fun with accessing your passwords and files in a different way.</p>
 						</div>
 					</section>
                     <section class="feature right">
 						<div class="image icon fa-sign-in" id="webCamBox">
                         </div>
                         <div class="content">
-							<h3>The fourth Thing</h3>
-                               
-                            <div id ="loadingUser" style="display:none">
-                                <p>loading...</p>
+							<h3>I want to try it</h3>
+                            <p>Well that's easy. All you need is my face. Once you have my face, just tap the image.</p>   
+                            <div id ="loadingUser" style="display:none; color:green">
+                                <p>Hmmm... trying to recognize this face.</p>
                             </div>
-                            <div id ="userInfo" style="display:none">
-                                <p>Name: <span id="username"></span></p>
-                                <p>Confidence<span id="confidence"></span></p>
+                            <div id ="userInfo" style="display:none; color:green">
+                                <p>Hey Hi! <span id="username"></span>.
+                                I am <span id="confidence"></span>% confident its you.</p>
                             </div>
-                            <div id ="unknownUser" style="display:none">
-                                <p>unknown user...</p>
-                                <p>signup?...</p>
+                            <div id ="unknownUser" style="display:none; color:red">
+                                <p>Na ah! Not one of the authorized faces. Change your face and try again :)</p>
                             </div>
-                            
-                            <!--<div id="gallery"></div>-->
-                            <!--form id="form0" name="form0" method="get" action="getUser">Name:
-                            <input id="formName" type="text" name="formName" value="No User" readonly="readonly" />
-                            <br />
-                            Confidence:
-                            <input id="conf" type="text" name="conf" value="" readonly="readonly" />
-                            <br />
-                            <button type="submit" value="Submit">Enter</button></form-->
+                            <!--<button type="submit" value="Submit">Enter</button></form-->
                             
 						</div>
 					</section>

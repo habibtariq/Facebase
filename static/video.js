@@ -82,7 +82,7 @@ function usePredictionResults(result) {
     else{
       document.getElementById("userInfo").style.display='block';
       var name = result.photos[0].tags[0].uids[0].prediction;
-      var confidence = result.photos[0].tags[0].uids[0].confidence;
+      var confidence = result.photos[0].tags[0].uids[0].confidence*100;
       document.getElementById("confidence").innerHTML = confidence;
       document.getElementById("username").innerHTML = name;
     }
