@@ -17,7 +17,7 @@ function route(handle, pathname, response, request) {
     pathname = "/static"+pathname;
     fs.exists(path.join(__dirname, pathname), function (exists) {
         if (exists) {
-            response.writeHead(200, {'Content-Type': 'image/svg+xml'});
+            response.writeHead(200, {'Content-Type': ''});
             fs.createReadStream('.'+pathname).pipe(response);
         } 
         else{
