@@ -14,18 +14,16 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/init.js"></script>
+        <script src="webcam.min.js"></script>
         <script src="video.js"></script>
-        <script src="http://wolframhempel.github.io/photobooth-js/photobooth_min.js"></script>
-		<noscript>
+        <noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-wide.css" />
-            <link rel="stylesheet" href="video.css" />
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
-        <div id="photo" style="min-height: 200px;"></div>
 		<!-- Header -->
 			<div id="header">
 				<span class="logo icon fa-paper-plane-o"></span>
@@ -39,21 +37,7 @@
 			<div id="main">
 
 				<header class="major container 75%">
-					<h2>Welcome to Facebase</h2>
-					<br />
-					<h3>Your own nugget of cloud storage with a twist
-					<br />
-					Tired of all those insane password requirements?
-					<br />
-					Well you won't need one for this.
-					<br />
-					Facebase makes your face your password and recognizes you so you can login with a smile.
-					<br />
-					This is currently a work in progress, so we're not saying it will keep the NSA out but you can have fun with accessing your storage in a different way.</h3>
-					<!--
-					<p>Tellus erat mauris ipsum fermentum<br />
-					etiam vivamus nunc nibh morbi.</p>
-					-->
+					<h2>Your own nugget of cloud storage with a twist.</h2>
 				</header>
 
 				<div class="box alt container">
@@ -61,21 +45,50 @@
 						<a href="#" class="image icon fa-signal"><img src="images/pic01.jpg" alt="" /></a>
 						<div class="content">
 							<h3>The First Thing</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+							<p>Tired of all those insane password requirements? Well you won't need one for this.</p>
 						</div>
 					</section>
 					<section class="feature right">
 						<a href="#" class="image icon fa-code"><img src="images/pic02.jpg" alt="" /></a>
 						<div class="content">
 							<h3>The Second Thing</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+							<p>Facebase makes your face your password and recognizes you so you can login with a smile..</p>
 						</div>
 					</section>
 					<section class="feature left">
 						<a href="#" class="image icon fa-mobile"><img src="images/pic03.jpg" alt="" /></a>
 						<div class="content">
 							<h3>The Third Thing</h3>
-							<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus eget. Nunc nibh morbi quis fusce lacus.</p>
+							<p>This is currently a work in progress, so we're not saying it will keep the NSA out but you can have fun with accessing your storage in a different way. Try it!</p>
+						</div>
+					</section>
+                    <section class="feature right">
+						<div class="image icon fa-sign-in" id="webCamBox">
+                        </div>
+                        <div class="content">
+							<h3>The fourth Thing</h3>
+                               
+                            <div id ="loadingUser" style="display:none">
+                                <p>loading...</p>
+                            </div>
+                            <div id ="userInfo" style="display:none">
+                                <p>Name: <span id="username"></span></p>
+                                <p>Confidence<span id="confidence"></span></p>
+                            </div>
+                            <div id ="unknownUser" style="display:none">
+                                <p>unknown user...</p>
+                                <p>signup?...</p>
+                            </div>
+                            
+                            <!--<div id="gallery"></div>-->
+                            <!--form id="form0" name="form0" method="get" action="getUser">Name:
+                            <input id="formName" type="text" name="formName" value="No User" readonly="readonly" />
+                            <br />
+                            Confidence:
+                            <input id="conf" type="text" name="conf" value="" readonly="readonly" />
+                            <br />
+                            <button type="submit" value="Submit">Enter</button></form-->
+                            
 						</div>
 					</section>
 				</div>

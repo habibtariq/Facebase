@@ -1,17 +1,29 @@
 $(window).load(function () {
 	$(document).ready(function () {
-		var file = null;
-		$('#photo').photobooth().on("image", function (event, dataUrl) {
-			document.getElementById("conf").value = "0.00";
-			document.getElementById("formName").value = "No User";
-			file = dataURLtoBlob(dataUrl);
-			var size = file.size;
-			alert("Picture size: " + size);
-			uploadImage(file);
-			$("#gallery").append('<img src="' + dataUrl + '" >');
+
+		Webcam.attach("#webCamBox");
+
+		//capture button calls hidden trigger button to take picture
+		$("#webCamBox").click(function () {
+			SnapAndPredict();
 		});
+
 	});
 
+	function SnapAndPredict() {
+    //take_snapshot and run prediction
+		Webcam.snap(function (data_uri) {
+			var image = dataURLtoBlob(data_uri);
+			console.log("file size is: " + image.size);
+			
+      //run prediction and use result
+      getPrediction(image, usePredictionResults);
+
+		});
+	}
+
+  
+  //Converts image DataURI to image Blob
 	function dataURLtoBlob(dataUrl) {
 		// Decode the dataURL
 		var binary = atob(dataUrl.split(',')[1]);
@@ -28,13 +40,22 @@ $(window).load(function () {
 		});
 	}
 
-	function uploadImage(file) {
-		var fd = new FormData();
+  //uploads image and calls the callback with results
+	function getPrediction(image, callback) {
+    
+    
+    document.getElementById("unknownUser").style.display='none';
+    document.getElementById("userInfo").style.display='none';
+    document.getElementById("loadingUser").style.display='block';
+    
+    
 		// Append our Canvas image file to the form data
-		fd.append("files", file);
+    var fd = new FormData();
+		fd.append("files", image);
 		fd.append("album", "habibTariq");
 		fd.append("albumkey", "7b6caeb1864fbdd5f09fe3899cd2d436199c3b28c843580e3f61689734d717aa");
-		// And send it
+		
+    // And send it
 		$.ajax({
 			url : "https://lambda-face-recognition.p.mashape.com/recognize",
 			type : "POST",
@@ -45,12 +66,32 @@ $(window).load(function () {
 				xhr.setRequestHeader("X-Mashape-Authorization", "6Zey27MELrmshOumnm1Bxn2Zap7bp1GDomAjsnBn38rYQv5LZB");
 			}
 		}).done(function (result) {
-			alert("Received response..");
-			var Name = result.photos[0].tags[0].uids[0].prediction;
-			var confidence = result.photos[0].tags[0].uids[0].confidence;
-			//        alert(Name);
-			document.getElementById("conf").value = confidence;
-			document.getElementById("formName").value = Name;
+			console.log("Received response..");
+      //callback
+      callback(result);
 		});
 	}
+
+function usePredictionResults(result) {
+    document.getElementById("loadingUser").style.display='none';
+    
+    if (result.photos[0].tags.length === 0) {
+      console.log("unknown user");
+      document.getElementById("unknownUser").style.display='block';;
+    }
+    else{
+      document.getElementById("userInfo").style.display='block';
+      var name = result.photos[0].tags[0].uids[0].prediction;
+      var confidence = result.photos[0].tags[0].uids[0].confidence;
+      document.getElementById("confidence").innerHTML = confidence;
+      document.getElementById("username").innerHTML = name;
+    }
+}
+
+  
+  
+  
+  
+  
+
 }); // Closes window.load
