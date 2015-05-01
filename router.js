@@ -1,4 +1,5 @@
 fs = require("fs");
+var mime = require('mime');
 var path = require('path');
 
 /* calls the route handler if it exists
@@ -17,7 +18,8 @@ function route(handle, pathname, response, request) {
     pathname = "/static"+pathname;
     fs.exists(path.join(__dirname, pathname), function (exists) {
         if (exists) {
-            response.writeHead(200, {'Content-Type': ''});
+            var filemine = mime.lookup('.'+pathname);
+            response.writeHead(200, {'Content-Type': filemine});
             fs.createReadStream('.'+pathname).pipe(response);
         } 
         else{
