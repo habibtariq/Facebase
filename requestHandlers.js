@@ -53,7 +53,7 @@ function getUser(response, request) {
 function putData(response, request) {
   console.log("putData was called");
   var url_parts = url.parse(request.url, true);
-  
+  console.log(url_parts);
   var user = url_parts.query.name,
 	website = url_parts.query.webName,
 	username = url_parts.query.userName,
