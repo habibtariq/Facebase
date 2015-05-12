@@ -17,8 +17,8 @@ $(window).load(function () {
 			var image = dataURLtoBlob(data_uri);
 			console.log("file size is: " + image.size);
 			
-      //run prediction and use result
-      getPrediction(image, usePredictionResults);
+			//run prediction and use result
+			getPrediction(image, usePredictionResults);
 
 		});
 	}
@@ -47,6 +47,7 @@ $(window).load(function () {
     
     document.getElementById("unknownUser").style.display='none';
     document.getElementById("userInfo").style.display='none';
+	document.getElementById("databaseForm").style.display='none';
     document.getElementById("loadingUser").style.display='block';
     
     
@@ -82,6 +83,7 @@ function usePredictionResults(result) {
     }
     else{
       document.getElementById("userInfo").style.display='block';
+	  document.getElementById("databaseForm").style.display='block';
       var name = result.photos[0].tags[0].uids[0].prediction;
       var confidence = result.photos[0].tags[0].uids[0].confidence*100;
       document.getElementById("confidence").innerHTML = confidence;
