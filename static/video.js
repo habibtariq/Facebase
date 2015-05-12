@@ -66,6 +66,7 @@ $(window).load(function () {
 		$.ajax({
 			url : "putData",
 			type : "GET",
+			processData: false,
 			name : name,
 			webName : webName,
 			userName : userName,
