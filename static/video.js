@@ -66,12 +66,12 @@ $(window).load(function () {
 		$.ajax({
 			url : "putData",
 			type : "GET",
-			processData: false,
-			name : name,
-			webName : webName,
-			userName : userName,
-			password : password,
-			email : email
+			data: {			name : name,
+							webName : webName,
+							userName : userName,
+							password : password,
+							email : "hab@h.com"
+},
 		}).done(function (result) {
 			console.log("Received response..");
 			console.log(result);
