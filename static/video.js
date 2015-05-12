@@ -50,7 +50,7 @@ $(window).load(function () {
 
 	//submit Button
 	$("#submit").click(function () {
-		var theData= {name: document.getElementById("username").value,
+		var theData= {name: document.getElementById("username").innerHTML,
 			webName: document.getElementById("webName").value,
 			userName: document.getElementById("userName").value,
 			password: document.getElementById("password").value,
@@ -87,18 +87,17 @@ $(window).load(function () {
 
 
 	//sample receive data function 
-	function sampleReceiveData(theData, callback) {
+	function receiveData(theData, callback) {
     
     
-		var name = "a name"; //theData.name
-		var someData = "some data"; //theData.someData
+		var name = theData.name; //theData.name
+		var webName = theData.webName;
 		
     // send it
 		$.ajax({
-			url : "url_here",
+			url : "getData",
 			type : "GET",
-			name : name,
-			someData : someData,
+			data: {	name: name, webName: webName}
 		}).done(function (result) {
 			console.log("Received response..");
 			console.log(result);
