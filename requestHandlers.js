@@ -28,7 +28,8 @@ function getData(response, request) {
 	connection.query("SELECT * from facebase WHERE website = '" + website + "' AND user = '" + name + "'", function (err, rows, fields) {
 		if (!err) {
 			console.log('The solution is: ', rows);
-			response.end(rows);
+			res.json(rows)
+			response.end();
 		} else
 			console.log('Error while performing Query.');
 	});
