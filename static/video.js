@@ -8,9 +8,15 @@ $(window).load(function () {
 		$("#webCamBox").click(function () {
 			SnapAndPredict();
 		});
-
+		
+		
+		$("#webCamBox").click(function () {
+			sampleSendData("data_here", "callback_function if any");
+		});
+		
+	
 	});
-
+	
 	function SnapAndPredict() {
     //take_snapshot and run prediction
 		Webcam.snap(function (data_uri) {
@@ -41,6 +47,30 @@ $(window).load(function () {
 		});
 	}
 
+	
+	//sample send data function 
+	function sampleSendData(theData, callback) {
+    
+    
+		var name = "a name"; //theData.name
+		var someData = "some data"; //theData.someData
+		
+    // send it
+		$.ajax({
+			url : "url_here",
+			type : "GET",
+			name : name,
+			someData : someData,
+		}).done(function (result) {
+			console.log("Received response..");
+			console.log(result);
+			//callback
+			//callback(result);
+		});
+	}
+	
+	
+	
   //uploads image and calls the callback with results
 	function getPrediction(image, callback) {
     
