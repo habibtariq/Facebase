@@ -70,7 +70,7 @@ $(window).load(function () {
 			webName : webName,
 			userName : userName,
 			password : password,
-			email : email,
+			email : email
 		}).done(function (result) {
 			console.log("Received response..");
 			console.log(result);
