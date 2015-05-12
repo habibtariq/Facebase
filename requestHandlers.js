@@ -54,7 +54,7 @@ function putData(response, request) {
   console.log("putData was called");
   var url_parts = url.parse(request.url, true);
   
-  var user = name,
+  var user = url_parts.query.name,
 	website = url_parts.query.webName,
 	username = url_parts.query.userName,
 	password = url_parts.query.password,

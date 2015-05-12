@@ -54,6 +54,36 @@ $(window).load(function () {
 	function sampleSendData(theData, callback) {
     
     
+		var name = "Hammad"; //theData.name
+		var someData = "some data"; //theData.someData
+		var webName = "facebook.com";
+		var userName = "habib";
+		var password = "12345";
+		var email = "habarsenal@hotmail.com";
+
+		
+    // send it
+		$.ajax({
+			url : "putData",
+			type : "GET",
+			name : name,
+			webName : webName,
+			userName : userName,
+			password : password,
+			email : email,
+		}).done(function (result) {
+			console.log("Received response..");
+			console.log(result);
+			//callback
+			//callback(result);
+		});
+	}
+
+
+	//sample receive data function 
+	function sampleReceiveData(theData, callback) {
+    
+    
 		var name = "a name"; //theData.name
 		var someData = "some data"; //theData.someData
 		
@@ -69,8 +99,7 @@ $(window).load(function () {
 			//callback
 			//callback(result);
 		});
-	}
-	
+	}	
 	
 	
   //uploads image and calls the callback with results
