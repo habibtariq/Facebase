@@ -72,7 +72,7 @@ function putData(response, request) {
 		});
 	console.log(query.sql);
 
-	console.log("Data submitted by the user name:" + name + " website:" + website + " Username:" + username + " passwd:" + password + " email:" + email);
+	console.log("Data submitted by the user name:" + user + " website:" + website + " Username:" + username + " passwd:" + password + " email:" + email);
 	fs.readFile('./form.html', function (error, data) {
 		console.log('Serving the page form.html');
 		response.end(data);
