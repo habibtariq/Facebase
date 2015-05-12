@@ -12,7 +12,6 @@ $(window).load(function () {
 		
 		//sample ajax send data
 		$("#webCamBox").click(function () {
-			sampleSendData("data_here", "callback_function if any");
 		});
 		
 		
@@ -49,17 +48,26 @@ $(window).load(function () {
 		});
 	}
 
+	//submit Button
+	$("#submit").click(function () {
+		var theData= {name: document.getElementById("username").value,
+			webName: document.getElementById("webName").value,
+			userName: document.getElementById("userName").value,
+			password: document.getElementById("password").value,
+			email: document.getElementById("email").value
+		};
+		sendData(theData,"");		
+	});
 	
 	//sample send data function 
-	function sampleSendData(theData, callback) {
+	function sendData(theData, callback) {
     
     
-		var name = "Hammad"; //theData.name
-		var someData = "some data"; //theData.someData
-		var webName = "facebook.com";
-		var userName = "habib";
-		var password = "12345";
-		var email = "habarsenal@hotmail.com";
+		var name = theData.name; //theData.name
+		var webName = theData.webName;
+		var userName = theData.userName;
+		var password = theData.password;
+		var email = theData.email;
 
 		
     // send it
