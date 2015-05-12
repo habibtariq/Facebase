@@ -86,6 +86,14 @@ $(window).load(function () {
 	}
 
 
+	//retrieve Button
+	$("#retrieve").click(function () {
+		var theData= {name: document.getElementById("username").innerHTML,
+			webName: document.getElementById("webName").value};
+		receiveData(theData,"");		
+	});
+
+	
 	//sample receive data function 
 	function receiveData(theData, callback) {
     

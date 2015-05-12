@@ -6,7 +6,6 @@ var train = require("./train");
 connection.connect();
 
 
-var name;
 
 //redirect to index.html
 function home(response) {
@@ -22,13 +21,14 @@ function getData(response, request) {
   var url_parts = url.parse(request.url, true);
 
   var website = url_parts.query.webName;
+  var name = url_parts.query.name
   console.log("Data requested by the user name:" + name + " for:" + website);
 
 	
 	connection.query("SELECT * from facebase WHERE website = '" + website + "' AND user = '" + name + "'", function (err, rows, fields) {
 		if (!err) {
 			console.log('The solution is: ', rows);
-			response.end(JSON.stringify(rows));
+			response.end(rows);
 		} else
 			console.log('Error while performing Query.');
 	});
