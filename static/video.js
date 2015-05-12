@@ -10,9 +10,11 @@ $(window).load(function () {
 		});
 		
 		
+		//sample ajax send data
 		$("#webCamBox").click(function () {
 			sampleSendData("data_here", "callback_function if any");
 		});
+		
 		
 	
 	});
