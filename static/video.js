@@ -105,8 +105,7 @@ $(window).load(function () {
 		$.ajax({
 			url : "getData",
 			type : "GET",
-			data: {	name: name, webName: webName},
-			dataType: 'json'
+			data: {	name: name, webName: webName}
 		}).done(function (result) {
 			console.log("Received response..");
 			console.log(result);
