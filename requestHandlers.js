@@ -25,15 +25,20 @@ function getData(response, request) {
   console.log("Data requested by the user name:" + name + " for:" + website);
 
 	
-	connection.query("SELECT * from facebase WHERE website = '" + website + "' AND user = '" + name + "'", function (err, rows, fields) {
+  var queryString = "SELECT * from facebase WHERE website = '" + website + "' AND user = '" + name + "'";
+  
+	connection.query(queryString, function (err, rows, fields) {
 		if (!err) {
 			console.log('The solution is: ', rows);
-			response.end(JSON.stringify(rows));
+      response.writeHead(200, {"Content-Type": "application/json"});
+      response.end(JSON.stringify(rows));
 		} else
-			console.log('Error while performing Query.');
+      console.log('Error while performing Query.');
+      response.writeHead(404, {"Content-Type": "application/json"});
+			response.end("Damn! We are experiencing problems reading our database.");
 	});
   
-  response.end();
+  
 }
 
 function getUser(response, request) {
