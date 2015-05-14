@@ -155,7 +155,7 @@ $(window).load(function () {
 	$("#surprise").click(function () {
 		console.log("third button pressed..");
 		$.ajax({
-			url : "getProject",//"3D_Solar_System/index.html",
+			url : "3D_Solar_System/index.html",
 			type : "GET",
 		}).done(function (result) {
 			console.log("Received response..");
