@@ -109,6 +109,9 @@ $(window).load(function () {
 		}).done(function (result) {
 			console.log("Received response..");
 			console.log(result);
+			userName: document.getElementById("userName").value = result[0].username;
+			password: document.getElementById("password").value = result[0].password;
+			email: document.getElementById("email").value = result[0].email;
 			//callback
 			//callback(result);
 		});
