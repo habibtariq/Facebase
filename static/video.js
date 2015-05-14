@@ -152,7 +152,7 @@ $(window).load(function () {
 	}
 	
 	//third Button
-	$("#surprise").click(function () {
+/*	$("#surprise").click(function () {
 		console.log("third button pressed..");
 		$.ajax({
 			url : "3D_Solar_System/index.html",
@@ -164,7 +164,7 @@ $(window).load(function () {
 			//callback(result);
 		});
 		
-	});
+	});*/
 
 function usePredictionResults(result) {
     document.getElementById("loadingUser").style.display='none';
