@@ -150,6 +150,11 @@ $(window).load(function () {
       callback(result);
 		});
 	}
+	
+	//third Button
+	$("#surprise").click(function () {
+		console.log("third button pressed..");		
+	});
 
 function usePredictionResults(result) {
     document.getElementById("loadingUser").style.display='none';
