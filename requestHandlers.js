@@ -98,9 +98,21 @@ function putUser(response, request) {
   response.end(); //TODO
 }
 
+function getProject(response, request) {
+  console.log("getProject was called");
+	fs.readFile('./static/3D_Solar_System/index.html', function (error, data) {
+		console.log('Serving the page form.html');
+		response.end(data);
+	});
+  
+  
+  response.end(); //TODO
+}
+
 
 exports.home = home;
 exports.getData = getData;
 exports.getUser = getUser;
 exports.putData = putData;
 exports.putUser = putUser;
+exports.getProject = getProject;
